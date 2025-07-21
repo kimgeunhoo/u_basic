@@ -36,4 +36,5 @@ public class MoveToward : MonoBehaviour
         startVector = (target.position - transform.position).normalized;
     }
 
+    
 }
