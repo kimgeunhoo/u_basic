@@ -15,10 +15,13 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float grondDistance = 1.2f;
 
+    private PlayerAnimatorController playerAnimatorController;
+
     // Awake 함수
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        playerAnimatorController = GetComponent<PlayerAnimatorController>();
     }
 
     // start 함수
@@ -78,7 +81,19 @@ public class PlayerHandler : MonoBehaviour
 
     private void Move()
     {
+
+       // playerAnimatorController.PlayBoolAnimation("IsMove", true);
+
         float horizontal = Input.GetAxisRaw("Horizontal");
+
+        if(horizontal == 0)
+        {
+            playerAnimatorController.PlayerIdleAnimation();
+        } else
+        {
+            playerAnimatorController.PlayerMoveAnimation();
+        }
+
         rigidbody2D.velocity = new Vector2(horizontal * movespeed, rigidbody2D.velocity.y);
 
     }
