@@ -17,6 +17,8 @@ public class PlayerHandler : MonoBehaviour
 
     private PlayerAnimatorController playerAnimatorController;
 
+    private float horizontal;
+
     // Awake 함수
     private void Awake()
     {
@@ -82,17 +84,29 @@ public class PlayerHandler : MonoBehaviour
     private void Move()
     {
 
-       // playerAnimatorController.PlayBoolAnimation("IsMove", true);
+        // playerAnimatorController.PlayBoolAnimation("IsMove", true);
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(horizontal == 0)
+        //if(horizontal == 0)
+        //{
+        //    playerAnimatorController.PlayerIdleAnimation();
+        //} else
+        //{
+        //    playerAnimatorController.PlayerMoveAnimation();
+        //}
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            playerAnimatorController.PlayerIdleAnimation();
-        } else
-        {
-            playerAnimatorController.PlayerMoveAnimation();
+            horizontal *= 0.5f;  
         }
+
+        playerAnimatorController.PlayFloatAnimation("Speed", Math.Abs(horizontal)); // -1, 0, 1
+
+        // 최대 속도 변수를 만들고, 현재 속도와 이동 방향을 곱해서 그 값이 0 ~ 1값으로 반환되게 만드는 코드 구현
+
+        // float maxSpeed
+        // float runSpeed
 
         rigidbody2D.velocity = new Vector2(horizontal * movespeed, rigidbody2D.velocity.y);
 

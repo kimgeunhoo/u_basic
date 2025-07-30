@@ -30,5 +30,14 @@ public class PlayerAnimatorController : MonoBehaviour
         PlayBoolAnimation("IsIdle", true);
     }
 
+    public void PlayFloatAnimation(string paramName, float value)
+    {
+        _animator.SetFloat(paramName, value);
+    }
+
+    private void PlayTriggerAnimation(string paramName)
+    {
+        _animator.SetTrigger(paramName);
+    }
 
 }
