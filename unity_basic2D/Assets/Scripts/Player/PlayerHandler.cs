@@ -86,7 +86,9 @@ public class PlayerHandler : MonoBehaviour
 
         // playerAnimatorController.PlayBoolAnimation("IsMove", true);
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        //horizontal = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
+
+        horizontal = Input.GetAxis("Horizontal"); // -1 ~ 1 技技茄 内靛 累己矫
 
         //if(horizontal == 0)
         //{
@@ -96,7 +98,7 @@ public class PlayerHandler : MonoBehaviour
         //    playerAnimatorController.PlayerMoveAnimation();
         //}
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             horizontal *= 0.5f;  
         }
