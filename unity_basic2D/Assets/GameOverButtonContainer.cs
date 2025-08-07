@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class GameOverButtonContainer : MonoBehaviour
 {
+    private int SceneIndex;
+
     public void RestartButton()
     {
         Debug.Log("재시작 버튼");
@@ -27,6 +30,12 @@ public class GameOverButtonContainer : MonoBehaviour
 
         EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void ButtonNext(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+
     }
 
 

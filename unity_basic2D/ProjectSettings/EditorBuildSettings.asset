@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SideViewGame.unity
     guid: ba62a6f5ab39d9447ad2539460f9c7aa
+  - enabled: 1
+    path: Assets/Scenes/SideViewGame 2.unity
+    guid: 8e36a7a45be70f54ca3355a5b93593be
   m_configObjects: {}

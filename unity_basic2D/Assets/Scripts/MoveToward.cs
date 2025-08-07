@@ -32,8 +32,8 @@ public class MoveToward : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        transform.position += startVector * Time.deltaTime * moveSpeed;
         startVector = (target.position - transform.position).normalized;
+        transform.position += startVector * Time.deltaTime * moveSpeed;
     }
 
     
